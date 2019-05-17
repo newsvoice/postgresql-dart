@@ -114,6 +114,7 @@ class PostgresTextEncoder extends Converter<dynamic, String> {
   }
 
   String encodeDateTime(DateTime value, {bool isDateOnly: false}) {
+    value = value.toUtc();
     var string = value.toIso8601String();
 
     if (isDateOnly) {
